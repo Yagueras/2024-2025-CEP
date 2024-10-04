@@ -1,0 +1,23 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color blue
+color darkBlue
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id gameDetails
+id gameImg
+id gamePlayerCount
+id gameTitle
+id gamesList
+id main
+id title
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme._1316
+style Theme._1316
+xml backup_rules
+xml data_extraction_rules
