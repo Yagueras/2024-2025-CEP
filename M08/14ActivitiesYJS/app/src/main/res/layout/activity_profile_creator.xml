@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.app.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/titleUserCreator"
@@ -31,7 +31,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="208dp"
         android:hint="Username"
-        android:inputType="textPassword"
         android:visibility="invisible"
         android:paddingHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"

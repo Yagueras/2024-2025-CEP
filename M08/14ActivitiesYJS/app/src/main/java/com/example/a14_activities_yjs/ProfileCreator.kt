@@ -6,28 +6,22 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.app.MainActivity
 
 class ProfileCreator : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_profile_creator)
 
         val userName = "cep"
         val password = "informatica"
 
-        val intent = getIntent()
+
         val givenUserName = intent.getStringExtra("userName")
         val givenUserPassword = intent.getStringExtra("password")
         var credentialsCheck = false
 
-        Toast.makeText(this, "$givenUserName", Toast.LENGTH_SHORT).show()
         val newUserInput = findViewById<EditText>(R.id.nameInput)
         val utilityButton = findViewById<Button>(R.id.createUserButton)
 
@@ -46,7 +40,7 @@ class ProfileCreator : AppCompatActivity() {
                 if (newUserInput.text.isNotBlank()){
                 val result = Intent(this, MainActivity::class.java)
                 setResult(RESULT_OK, result)
-                result.putExtra("newUser", newUserInput.text)
+                result.putExtra("newUser", newUserInput.text.toString())
                 finish()
                 }else{
                     Toast.makeText(this, "Please input a valid name", Toast.LENGTH_SHORT).show()
