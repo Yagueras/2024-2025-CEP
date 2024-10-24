@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val gamesList: ListView = findViewById<ListView>(R.id.gamesList)
+        val gamesList = findViewById<ListView>(R.id.gamesList)
 
         val adapter = GamesAdapter(this, R.layout.games_list_item, gameSelection)
 
@@ -52,6 +53,12 @@ class MainActivity : AppCompatActivity() {
             val gameDetailsPlayerCount = findViewById<TextView>(R.id.gameDetailsPlayerCount)
             gameDetailsPlayerCount.text = "Current players: " + gameSelection[position].playerCount.toString()
             gameDetailsPlayerCount.visibility = View.VISIBLE
+        }
+
+        val addNewGameButton = findViewById<FloatingActionButton>(R.id.addNewGameButton)
+
+        addNewGameButton.setOnClickListener(){
+
         }
     }
 }
