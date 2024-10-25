@@ -1,3 +1,5 @@
 package com.example.a13_16
 
-class Game (val name: String, val publisher: String, val playerCount: Int, val gameCover: Int)
+import java.io.Serializable
+
+class Game (val name: String, val publisher: String, val playerCount: Int, val gameCover: Int) : Serializable

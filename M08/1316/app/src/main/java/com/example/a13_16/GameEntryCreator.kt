@@ -11,4 +11,9 @@ class GameEntryCreator : AppCompatActivity(){
 
 
     }
+
+    override fun onStop() {
+        super.onStop()
+        setResult(RESULT_CANCELED)
+    }
 }
