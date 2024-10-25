@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import java.util.ArrayList
 
-class GamesAdapter (context: Context, val layout: Int, val gamesList: ArrayList<Game>): //<< Definimos aquí los parámetros que recibe el adapter
+class GamesAdapter (context: Context, val layout: Int, val gamesList: MutableList<Game>): //<< Definimos aquí los parámetros que recibe el adapter
 
     //Llamo al constructor de la clase base, y le paso los atributos de GamesAdapter
     ArrayAdapter<Game>(context,layout,gamesList) {

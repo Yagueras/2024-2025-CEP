@@ -1,5 +1,6 @@
 package com.example.a13_16
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val gameSelection = arrayListOf(
+        val gameSelection = mutableListOf(
             Game("Titanfall 2", "EA", 12000, R.drawable.titanfall2),
             Game("Fire Emblem Three Houses", "Nintendo", 19000, R.drawable.feh3h),
             Game("Call Of Duty MW2", "Activision", 10000, R.drawable.codmw2),
@@ -53,8 +54,8 @@ class MainActivity : AppCompatActivity() {
 
         val addNewGameButton = findViewById<FloatingActionButton>(R.id.addNewGameButton)
 
-        addNewGameButton.setOnClickListener(){
-
+        addNewGameButton.setOnClickListener{
+            val intent = Intent(this, GameEntryCreator::class.java)
         }
     }
 }
