@@ -31,10 +31,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="150dp">
 
             <EditText
-                android:id="@+id/newGameTitle"
+                android:id="@+id/newGameName"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
@@ -55,7 +56,7 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newGameTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/newGameName" />
 
             <EditText
                 android:id="@+id/newGamePlayerCount"
