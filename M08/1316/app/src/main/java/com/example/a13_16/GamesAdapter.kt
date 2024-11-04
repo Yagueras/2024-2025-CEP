@@ -1,6 +1,8 @@
 package com.example.a13_16
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,14 +28,15 @@ class GamesAdapter (context: Context, val layout: Int, val gamesList: MutableLis
             view = LayoutInflater.from(getContext()).inflate(layout, parent, false)
         }
 
-            bindGame(view, gamesList[position])
+            bindGame(view, gamesList[position], context)
 
         return view
     }
 
-    fun bindGame(view: View, game: Game){
+    fun bindGame(view: View, game: Game, context: Context){
         val gameImg = view.findViewById<ImageView>(R.id.gamesListImg)
-        gameImg.setImageResource(game.gameCover)
+        val decodedImage = BitmapFactory.decodeFile(context.getFilesDir().toString() + "/img/" + game.gameCover)
+        gameImg.setImageBitmap(decodedImage)
         val gameName = view.findViewById<TextView>(R.id.gameName)
         gameName.text = game.name
         val gamePublisher = view.findViewById<TextView>(R.id.gamePublisher)
