@@ -1,7 +1,13 @@
 package com.example.a13_16
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
@@ -10,12 +16,24 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.StreamTokenizer
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var gameSelection: MutableList<Game>
     private lateinit var gameListAdapter: GamesAdapter
 
+    private val defaultImages = listOf(
+        R.drawable.codmw2,
+        R.drawable.feh3h,
+        R.drawable.thecrew2,
+        R.drawable.titanfall2,
+        R.drawable.r6s,
+        R.drawable.signalis,
+        R.drawable.sottr
+    )
 
     private val getResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -28,23 +46,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    private fun loadDefaultImages() {
-        var imgDir = getFilesDir().toString() + "/img/"
 
-        val defaultImages = listOf(
-            R.drawable.codmw2,
-            R.drawable.feh3h,
-            R.drawable.thecrew2,
-            R.drawable.titanfall2,
-            R.drawable.r6s,
-            R.drawable.signalis,
-            R.drawable.sottr
-        )
+    fun loadDefaultImages(context: Context, defaultImages: List<Int>, imgDir: String) {
+        for (i in defaultImages.indices) {
+            val resourceId = defaultImages[i]
+            val imageName =  getResources().getResourceEntryName(resourceId) // Customize naming as needed
+            try {
+                val bitmap = BitmapFactory.decodeResource(context.resources, resourceId)
+                val file = File(imgDir, imageName)
+                val outputStream = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+                outputStream.flush()
+                outputStream.close()
+            } catch (e: IOException) {
+                Log.e("LoadDefaultImages", "Error loading image: $imageName", e)
+            }
+        }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        lateinit var imgDir : String
+
+        val prefsHelper = PrefsHelper(this)
+        if (prefsHelper.isFirstTimeLaunch()) {
+            imgDir = getFilesDir().toString()
+            val directory = File("$imgDir/img")
+            directory.mkdirs()
+            loadDefaultImages(this, defaultImages, directory.absolutePath)
+            prefsHelper.setFirstTimeLaunch(false)
+        }
 
         gameSelection = mutableListOf(
             Game("Titanfall 2", "EA", 12000, "titanfall2"),

@@ -20,7 +20,7 @@ class GameEntryCreator : AppCompatActivity(){
         val inputGamePlayerCount = findViewById<EditText>(R.id.newGamePlayerCount)
         val newEntryButton = findViewById<Button>(R.id.createEntryButton)
 
-        val selectedImagePath = getFilesDir().toString() + "/img/" + inputGameCover.get
+        //val selectedImagePath = getFilesDir().toString() + "/img/" + inputGameCover.get
 
         var selectedImage =
 
