@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -19,7 +17,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.io.StreamTokenizer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var gameSelection: MutableList<Game>
@@ -100,7 +97,8 @@ class MainActivity : AppCompatActivity() {
         { _, _, position, _ ->
 
             val gameDetailsImg = findViewById<ImageView>(R.id.gameImg)
-            getFilesDir().toString() + "/img/" + gameSelection[position].gameCover
+            val loadImage = BitmapFactory.decodeFile(getFilesDir().toString() + "/img/" + gameSelection[position].gameCover)
+            gameDetailsImg.setImageBitmap(loadImage)
             gameDetailsImg.visibility = View.VISIBLE
 
             val gameDetailsTitle = findViewById<TextView>(R.id.gameDetailsTitle)

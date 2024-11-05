@@ -1,7 +1,6 @@
 package com.example.a13_16
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import java.util.ArrayList
 
 class GamesAdapter (context: Context, val layout: Int, val gamesList: MutableList<Game>): //<< Definimos aquí los parámetros que recibe el adapter
 
