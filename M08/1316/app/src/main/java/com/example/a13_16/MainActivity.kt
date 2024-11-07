@@ -8,11 +8,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 import java.io.FileOutputStream
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         R.drawable.sottr
     )
 
+    //Comprueba si la aplicación lanzada, ha sido un éxito o no
     private val getResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+        //Carga las images por defecto, de drawable, a files/img
     fun loadDefaultImages(context: Context, defaultImages: List<Int>, imgDir: String) {
         for (i in defaultImages.indices) {
             val resourceId = defaultImages[i]
@@ -66,6 +67,8 @@ class MainActivity : AppCompatActivity() {
 
         lateinit var imgDir : String
 
+        //Comprueba si es la primera ejecución del programa,
+        // para mover las imágenes de drawable a files/img
         val prefsHelper = PrefsHelper(this)
         if (prefsHelper.isFirstTimeLaunch()) {
             imgDir = getFilesDir().toString()
@@ -75,6 +78,7 @@ class MainActivity : AppCompatActivity() {
             prefsHelper.setFirstTimeLaunch(false)
         }
 
+        //Caragmos los objetos por defecto de la aplicación
         gameSelection = mutableListOf(
             Game("Titanfall 2", "EA", 12000, "titanfall2"),
             Game("Fire Emblem Three Houses", "Nintendo", 19000, "feh3h"),
@@ -89,10 +93,11 @@ class MainActivity : AppCompatActivity() {
 
         gameListAdapter = GamesAdapter(this, R.layout.games_list_item, gameSelection)
 
-        val gamesList = findViewById<ListView>(R.id.gamesList)
+        val gamesList = findViewById<RecyclerView>(R.id.gamesList)
 
         gamesList.adapter = gameListAdapter
 
+        //Falta implementacion onClick en GamesAdapter
         gamesList.setOnItemClickListener()
         { _, _, position, _ ->
 
