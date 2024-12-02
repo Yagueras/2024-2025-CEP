@@ -4,17 +4,20 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class GamesAdapter (val context: Context, /*val layout: Int,*/ val gamesList: MutableList<Game>): //<< Definimos aquí los parámetros que recibe el adapter
 
-    RecyclerView.Adapter<GamesAdapter.GamesViewGolder>(){
+    RecyclerView.Adapter<GamesAdapter.GamesViewHolder>(){
         private val layout = R.layout.games_list_item
+        private var clickListener: View.OnClickListener? = null
 
-    class GamesViewGolder(val view: View):
+    class GamesViewHolder(val view: View):
     RecyclerView.ViewHolder(view){
         var gameImg: ImageView //= view.findViewById<ImageView>(R.id.gamesListImg)
         var gameName: TextView //= view.findViewById<TextView>(R.id.gameName)
@@ -27,29 +30,35 @@ class GamesAdapter (val context: Context, /*val layout: Int,*/ val gamesList: Mu
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesViewGolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
-        return GamesViewGolder(view)
+        return GamesViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: GamesViewGolder, position: Int) {
+    override fun onBindViewHolder(holder: GamesViewHolder, position: Int) {
         val game = gamesList[position]
         bindGame(holder, game)
     }
 
-    fun bindGame(holder: GamesViewGolder, game:Game){
+    fun bindGame(holder: GamesViewHolder, game:Game){
         val decodedImage = BitmapFactory.decodeFile(context.getFilesDir().toString() + "/img/" + game.gameCover)
         holder.gameImg.setImageBitmap(decodedImage)
         holder.gameName.text = game.name
         holder.gamePublisher.text = game.publisher
     }
 
-    override fun getItemCount(): Int {
-        return gamesList.size
+    //Implementamos la interfaz obligatoria
+    override fun getItemCount() = gamesList.size
+
+    fun setOnClickListener(listener: View.OnClickListener) {
+        clickListener = listener
+    }
+
+    fun onClick(view: View){
+        clickListener?.onClick(view)
     }
 
 }
-
 
 
 //Pendiente de análisis

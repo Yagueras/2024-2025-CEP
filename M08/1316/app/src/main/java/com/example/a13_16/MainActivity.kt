@@ -91,16 +91,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        gameListAdapter = GamesAdapter(this, R.layout.games_list_item, gameSelection)
+        gameListAdapter = GamesAdapter(this, gameSelection)
 
         val gamesList = findViewById<RecyclerView>(R.id.gamesList)
 
         gamesList.adapter = gameListAdapter
 
         //Falta implementacion onClick en GamesAdapter
-        gamesList.setOnItemClickListener()
-        { _, _, position, _ ->
-
+        gamesList.setOnClickListener()
+        {
             val gameDetailsImg = findViewById<ImageView>(R.id.gameImg)
             val loadImage = BitmapFactory.decodeFile(getFilesDir().toString() + "/img/" + gameSelection[position].gameCover)
             gameDetailsImg.setImageBitmap(loadImage)
