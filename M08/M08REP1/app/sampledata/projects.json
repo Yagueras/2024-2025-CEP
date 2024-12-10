@@ -3,13 +3,9 @@
     "projectID": 1,
     "name": "Proyecto Alpha",
     "statusList": [
-      {
-        "statusID": 1,"statusName": "To do"
-      },{
-        "statusID": 2,"statusName": "In progress"
-      },{
-        "statusID": 3,"statusName": "Completed"
-      }
+      { "statusID": 1, "statusName": "To do" },
+      { "statusID": 2, "statusName": "In progress" },
+      { "statusID": 3, "statusName": "Completed" }
     ],
     "tasks": [
       {
@@ -68,15 +64,10 @@
     "projectID": 2,
     "name": "Proyecto Beta",
     "statusList": [
-      {
-        "statusID": 1,"statusName": "To do"
-      },{
-        "statusID": 2,"statusName": "In progress"
-      },{
-        "statusID": 3,"statusName": "Completed"
-      },{
-        "statusID": 4,"statusName": "Testing"
-      }
+      { "statusID": 1, "statusName": "To do" },
+      { "statusID": 2, "statusName": "In progress" },
+      { "statusID": 3, "statusName": "Completed" },
+      { "statusID": 4, "statusName": "Testing" }
     ],
     "tasks": [
       {
@@ -101,6 +92,141 @@
             "requiredTime": 10,
             "timeUsed": 0,
             "status": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "projectID": 3,
+    "name": "Proyecto Gamma",
+    "statusList": [
+      { "statusID": 1, "statusName": "To do" },
+      { "statusID": 2, "statusName": "In progress" },
+      { "statusID": 3, "statusName": "Completed" }
+    ],
+    "tasks": [
+      {
+        "taskID": 1,
+        "name": "Documentación inicial",
+        "requiredTime": 15,
+        "timeUsed": 5,
+        "status": 2,
+        "subTasks": [
+          {
+            "subTaskID": 1,
+            "name": "Guía de usuario",
+            "description": "Crear la guía de usuario para el sistema",
+            "requiredTime": 8,
+            "timeUsed": 3,
+            "status": 2
+          },
+          {
+            "subTaskID": 2,
+            "name": "Manual técnico",
+            "description": "Elaborar un manual técnico para los desarrolladores",
+            "requiredTime": 7,
+            "timeUsed": 2,
+            "status": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "projectID": 4,
+    "name": "Proyecto Delta",
+    "statusList": [
+      { "statusID": 1, "statusName": "To do" },
+      { "statusID": 2, "statusName": "In progress" },
+      { "statusID": 3, "statusName": "Completed" },
+      { "statusID": 4, "statusName": "Reviewed" }
+    ],
+    "tasks": [
+      {
+        "taskID": 1,
+        "name": "Pruebas funcionales",
+        "requiredTime": 30,
+        "timeUsed": 15,
+        "status": 2,
+        "subTasks": [
+          {
+            "subTaskID": 1,
+            "name": "Pruebas de carga",
+            "description": "Ejecutar pruebas de carga en el sistema",
+            "requiredTime": 15,
+            "timeUsed": 5,
+            "status": 2
+          },
+          {
+            "subTaskID": 2,
+            "name": "Pruebas de seguridad",
+            "description": "Realizar pruebas de penetración para identificar vulnerabilidades",
+            "requiredTime": 15,
+            "timeUsed": 10,
+            "status": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "projectID": 5,
+    "name": "Proyecto Épsilon",
+    "statusList": [
+      { "statusID": 1, "statusName": "To do" },
+      { "statusID": 2, "statusName": "In progress" },
+      { "statusID": 3, "statusName": "Completed" },
+      { "statusID": 5, "statusName": "Cancelled" }
+    ],
+    "tasks": [
+      {
+        "taskID": 1,
+        "name": "Planeación del proyecto",
+        "requiredTime": 12,
+        "timeUsed": 4,
+        "status": 2,
+        "subTasks": [
+          {
+            "subTaskID": 1,
+            "name": "Establecer objetivos",
+            "description": "Definir metas específicas para el proyecto",
+            "requiredTime": 4,
+            "timeUsed": 2,
+            "status": 2
+          },
+          {
+            "subTaskID": 2,
+            "name": "Identificar recursos",
+            "description": "Listar los recursos necesarios para completar el proyecto",
+            "requiredTime": 8,
+            "timeUsed": 2,
+            "status": 2
+          }
+        ]
+      },
+      {
+        "taskID": 2,
+        "name": "Ejecución inicial",
+        "requiredTime": 20,
+        "timeUsed": 10,
+        "status": 2,
+        "subTasks": [
+          {
+            "subTaskID": 1,
+            "name": "Primer sprint",
+            "description": "Completar tareas del primer sprint",
+            "requiredTime": 10,
+            "timeUsed": 5,
+            "status": 2
+          },
+          {
+            "subTaskID": 2,
+            "name": "Revisión inicial",
+            "description": "Revisar los avances del primer sprint con los interesados",
+            "requiredTime": 10,
+            "timeUsed": 5,
+            "status": 3
           }
         ]
       }
