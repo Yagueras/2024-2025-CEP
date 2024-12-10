@@ -1,10 +1,10 @@
-package com.example.m08_rep1
+package com.example.m08_rep1.activities
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.m08_rep1.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
