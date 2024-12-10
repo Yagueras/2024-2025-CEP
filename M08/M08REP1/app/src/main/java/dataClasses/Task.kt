@@ -1,6 +1,5 @@
 package dataClasses
 
-import SubTask
 import java.io.Serializable
 
 data class Task(
