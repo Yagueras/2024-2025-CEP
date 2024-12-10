@@ -3,10 +3,10 @@ package dataClasses
 import java.io.Serializable
 
 data class Task(
-    val taskID: String,
+    val taskID: Int,
     val name: String,
     val requiredTime: Int,
     val timeUsed: Int,
-    val status: String,
+    val status: Int,
     val subTasks: List<SubTask>
 ) : Serializable
