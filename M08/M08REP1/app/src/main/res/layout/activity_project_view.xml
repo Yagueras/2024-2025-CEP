@@ -11,8 +11,8 @@
         android:id="@+id/projects_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/rounded_corner"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner_papaya"
         android:gravity="center"
         android:paddingVertical="15dp"
         android:text="Projects"
@@ -26,10 +26,12 @@
 
     <fragment
         android:id="@+id/projects_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
         class="fragments.ProjectListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="25dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/projects_title"
         tools:layout_editor_absoluteX="25dp" />
 
