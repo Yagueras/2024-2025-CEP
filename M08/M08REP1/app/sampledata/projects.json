@@ -1,86 +1,106 @@
 [
   {
-    "projectID": "P001",
+    "projectID": 1,
     "name": "Proyecto Alpha",
+    "statusList": [
+      {
+        "statusID": 1,"statusName": "To do"
+      },{
+        "statusID": 2,"statusName": "In progress"
+      },{
+        "statusID": 3,"statusName": "Completed"
+      }
+    ],
     "tasks": [
       {
-        "taskID": "T001",
+        "taskID": 1,
         "name": "Diseño de interfaz",
         "requiredTime": 40,
         "timeUsed": 25,
-        "status": "En progreso",
+        "status": 2,
         "subTasks": [
           {
-            "subTaskID": "ST001",
+            "subTaskID": 1,
             "name": "Wireframes iniciales",
             "description": "Crear wireframes para la página principal",
             "requiredTime": 10,
             "timeUsed": 8,
-            "status": "Completada"
+            "status": 3
           },
           {
-            "subTaskID": "ST002",
+            "subTaskID": 2,
             "name": "Prototipo interactivo",
             "description": "Diseñar un prototipo interactivo para pruebas",
             "requiredTime": 20,
             "timeUsed": 10,
-            "status": "En progreso"
+            "status": 2
           }
         ]
       },
       {
-        "taskID": "T002",
+        "taskID": 2,
         "name": "Desarrollo backend",
         "requiredTime": 60,
         "timeUsed": 15,
-        "status": "Pendiente",
+        "status": 2,
         "subTasks": [
           {
-            "subTaskID": "ST003",
+            "subTaskID": 1,
             "name": "Estructura de la base de datos",
             "description": "Definir el esquema de la base de datos",
             "requiredTime": 15,
             "timeUsed": 0,
-            "status": "Pendiente"
+            "status": 2
           },
           {
-            "subTaskID": "ST004",
+            "subTaskID": 2,
             "name": "API REST",
             "description": "Desarrollar las rutas principales de la API",
             "requiredTime": 25,
             "timeUsed": 0,
-            "status": "Pendiente"
+            "status": 2
           }
         ]
       }
     ]
   },
   {
-    "projectID": "P002",
+    "projectID": 2,
     "name": "Proyecto Beta",
+    "statusList": [
+      {
+        "statusID": 1,"statusName": "To do"
+      },{
+        "statusID": 2,"statusName": "In progress"
+      },{
+        "statusID": 3,"statusName": "Completed"
+      },{
+        "statusID": 4,"statusName": "Testing"
+      }
+    ],
     "tasks": [
       {
-        "taskID": "T003",
+        "taskID": 1,
         "name": "Investigación de mercado",
         "requiredTime": 20,
         "timeUsed": 5,
-        "status": "En progreso",
+        "status": 2,
         "subTasks": [
           {
-            "subTaskID": "ST005",
+            "subTaskID": 1,
             "name": "Análisis de competidores",
             "description": "Revisar las estrategias de la competencia",
             "requiredTime": 10,
-            "timeUsed": 5,
-            "status": "En progreso"
+            "timeUsed": 7,
+            "status": 4
           },
           {
-            "subTaskID": "ST006",
+            "subTaskID": 2,
             "name": "Encuestas de usuarios",
             "description": "Realizar encuestas para validar ideas",
             "requiredTime": 10,
             "timeUsed": 0,
-            "status": "Pendiente"
+            "status": 1
           }
         ]
       }
