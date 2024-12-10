@@ -1,7 +1,9 @@
 package tools
 
 import android.content.Context
+import android.widget.Toast
 import com.google.gson.Gson
+import dataClasses.Project
 import dataClasses.ProjectsWrapper
 import java.io.BufferedReader
 import java.io.File
@@ -16,7 +18,7 @@ class ProjectFileHandler(private val context: Context) {
      * @param fileName The name of the JSON file.
      * @return A ProjectsWrapper object if successful, or null if an error occurs.
      */
-    fun readProjectsFromFile(fileName: String): ProjectsWrapper? {
+    fun readProjectsFromFile(fileName: String): Array<Project>? {
         return try {
             // Get the file path
             val file = File(context.filesDir, fileName)
@@ -31,7 +33,7 @@ class ProjectFileHandler(private val context: Context) {
             val json = reader.use { it.readText() }
 
             // Deserialize the JSON content to ProjectsWrapper
-            gson.fromJson(json, ProjectsWrapper::class.java)
+            gson.fromJson(json, Array<Project>::class.java)
         } catch (e: Exception) {
             e.printStackTrace()
             null

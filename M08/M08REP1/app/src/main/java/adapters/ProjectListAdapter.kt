@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
 import dataClasses.Project
 
-class ProjectListAdapter(val projectList: List<Project>) :
+class ProjectListAdapter(val projectList: Array<Project>) :
 
     RecyclerView.Adapter<ProjectListAdapter.ProjectListViewHolder>() {
     private val layout = R.layout.project_item

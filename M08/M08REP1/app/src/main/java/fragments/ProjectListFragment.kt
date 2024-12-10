@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
 import dataClasses.Project
+import dataClasses.ProjectsWrapper
 import dataClasses.Status
 import dataClasses.SubTask
 import dataClasses.Task
+import tools.ProjectFileHandler
 
 class ProjectListFragment : Fragment() {
     override fun onCreateView(
@@ -28,32 +30,11 @@ class ProjectListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listOfProjects = listOf(
-            Project(
-                1,
-                "Proyecto A",
-                listOf(
-                    Status(1, "To do"),
-                    Status(2, "In progress"),
-                    Status(3, "Completed")),
-                listOf(
-                    Task(1, "Diseño", 40, 25, 2,
-                        listOf(
-                            SubTask(1,"wireframes", "askjdhasdklfh", 10, 8,3))))
-            ), Project(
-                2,
-                "Proyecto B",
-                listOf(
-                    Status(1, "To do"),
-                    Status(2, "In progress"),
-                    Status(3, "Completed")),
-                listOf(
-                    Task(1, "Desarollo", 40, 25, 2,
-                        listOf(
-                            SubTask(1,"wireframes", "askjdhasdklfh", 10, 8,3))))
-            )
-        )
-        val projectListAdapter = ProjectListAdapter(listOfProjects)
+        val projectFileHandler = ProjectFileHandler(requireContext())
+
+        val listOfProjects = projectFileHandler.readProjectsFromFile("projects.json")
+
+        val projectListAdapter = ProjectListAdapter(listOfProjects!!)
 
         val projectList = view.findViewById<RecyclerView>(R.id.project_list)
         projectList.layoutManager = LinearLayoutManager(requireContext())
