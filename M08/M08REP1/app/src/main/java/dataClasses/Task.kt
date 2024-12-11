@@ -8,5 +8,5 @@ data class Task(
     val requiredTime: Int,
     val timeUsed: Int,
     val status: Int,
-    val subTasks: List<SubTask>
+    val subTasks: List<SubTask>?
 ) : Serializable
