@@ -3,22 +3,55 @@ package adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.m08_rep1.R
 import dataClasses.Project
 
-class ProjectListAdapter(val projectList: Array<Project>) :
+class ProjectListAdapter(
+    private val projectList: Array<Project>,
+    private val onItemClick: (Project) -> Unit // Listener para clics
+) : RecyclerView.Adapter<ProjectListAdapter.ProjectViewHolder>() {
 
-    RecyclerView.Adapter<ProjectListAdapter.ProjectListViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.project_item, parent, false)
+        return ProjectViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
+        val project = projectList[position]
+        holder.bind(project)
+        holder.itemView.setOnClickListener { onItemClick(project) } // Asignar el clic
+    }
+
+    override fun getItemCount(): Int = projectList.size
+
+    inner class ProjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val projectName: TextView = itemView.findViewById(R.id.project_name)
+        private val taskProgress: TextView =itemView.findViewById(R.id.task_progress)//LinearLayout
+        private val timeUsed: TextView =itemView.findViewById(R.id.time_used)//LinearLayout
+
+        fun bind(project: Project) {
+            projectName.text = project.name
+            taskProgress.text = "TASK PROGRESS CHART(TO DO)"
+            timeUsed.text = "TIME USED CHART(TO DO)"
+        }
+    }
+}
+
+    /*(
+    private val projectList: Array<Project>
+) : RecyclerView.Adapter<ProjectListAdapter.ProjectListViewHolder>(), OnClickListener {
     private val layout = R.layout.project_item
-    private var clickListener: View.OnClickListener? = null
+    private var clickListener: OnClickListener? = null
 
 
-    class ProjectListViewHolder(val view: View) :
-        RecyclerView.ViewHolder(view) {
+    class ProjectListViewHolder(view: View) :
+        ViewHolder(view) {
         var projectName: TextView
         var taskProgress: TextView//LinearLayout
         var timeUsed: TextView//LinearLayout
@@ -32,6 +65,7 @@ class ProjectListAdapter(val projectList: Array<Project>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
+        view.setOnClickListener(this)
         return ProjectListViewHolder(view)
     }
 
@@ -48,11 +82,12 @@ class ProjectListAdapter(val projectList: Array<Project>) :
 
     override fun getItemCount() = projectList.size
 
-    fun setOnClickListener(listener: View.OnClickListener) {
+    private fun setOnClickListener(listener: OnClickListener) {
         clickListener = listener
     }
 
-    fun onClick(view: View){
+    override fun onClick(view: View?) {
         clickListener?.onClick(view)
     }
-}
+
+}*/

@@ -3,9 +3,11 @@ package fragments
 import adapters.ProjectListAdapter
 import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,11 +36,15 @@ class ProjectListFragment : Fragment() {
 
         val listOfProjects = projectFileHandler.readProjectsFromFile("projects.json")
 
-        val projectListAdapter = ProjectListAdapter(listOfProjects!!)
-
         val projectList = view.findViewById<RecyclerView>(R.id.project_list)
         projectList.layoutManager = LinearLayoutManager(requireContext())
-        projectList.adapter = projectListAdapter
+        projectList.hasFixedSize()
+        projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
+            Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
+        }
+
+
+
 
     }
 }
