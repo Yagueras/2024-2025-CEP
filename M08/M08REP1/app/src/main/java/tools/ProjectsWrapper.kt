@@ -1,4 +1,6 @@
-package dataClasses
+package tools
+
+import dataClasses.Project
 
 data class ProjectsWrapper(
     val projects: Array<Project>

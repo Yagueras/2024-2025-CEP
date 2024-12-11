@@ -1,4 +1,6 @@
-package dataClasses
+package tools
+
+import dataClasses.User
 
 data class UsersWrapper(
     val projects: Array<User>
