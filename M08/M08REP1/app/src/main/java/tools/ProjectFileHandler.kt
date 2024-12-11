@@ -43,10 +43,10 @@ class ProjectFileHandler(private val context: Context) {
      * @param fileName The name of the JSON file.
      * @param projectsWrapper The ProjectsWrapper object to save.
      */
-    fun writeProjectsToFile(fileName: String, projectsWrapper: ProjectsWrapper) {
+    fun writeProjectsToFile(fileName: String, projects: Array<Project>) {
         try {
             // Serialize the ProjectsWrapper object to JSON
-            val json = gson.toJson(projectsWrapper)
+            val json = gson.toJson(projects)
 
             // Write the JSON content to the file
             val file = File(context.filesDir, fileName)

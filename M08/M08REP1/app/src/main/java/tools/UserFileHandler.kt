@@ -2,12 +2,13 @@ package tools
 
 import android.content.Context
 import com.google.gson.Gson
+import dataClasses.Project
 import dataClasses.User
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
 
-class UserFileHandler(private val context: Context)  {
+class UserFileHandler(private val context: Context) {
     private val gson = Gson()
 
     fun readUsersFromFile(fileName: String): Array<User>? {
@@ -32,10 +33,10 @@ class UserFileHandler(private val context: Context)  {
         }
     }
 
-    fun writeUserToFile(fileName: String, usersWrapper: UsersWrapper) {
+    fun writeUserToFile(fileName: String, users: Array<User>) {
         try {
             // Serialize the ProjectsWrapper object to JSON
-            val json = gson.toJson(usersWrapper)
+            val json = gson.toJson(users)
 
             // Write the JSON content to the file
             val file = File(context.filesDir, fileName)
