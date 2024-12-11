@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateLastValidLogin(context: Context, validUserLogin: User) {
         val newValidLogin : Array<User> = arrayOf(validUserLogin)
-        UserFileHandler(context).writeUserToFile("lastValidLogin.json", newValidLogin)
+        UserFileHandler(context).writeUserToFile("lastValidLogin.json", newValidLogin, false)
     }
 
 }

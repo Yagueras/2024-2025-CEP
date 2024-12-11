@@ -33,16 +33,23 @@ class UserFileHandler(private val context: Context) {
         }
     }
 
-    fun writeUserToFile(fileName: String, users: Array<User>) {
+    fun writeUserToFile(fileName: String, users: Array<User>?, wipe: Boolean) {
         try {
-            // Serialize the ProjectsWrapper object to JSON
-            val json = gson.toJson(users)
+            lateinit var file: File
+            if (!wipe) {
+                // Serialize the ProjectsWrapper object to JSON
+                val json = gson.toJson(users)
 
-            // Write the JSON content to the file
-            val file = File(context.filesDir, fileName)
-            file.writeText(json)
+                // Write the JSON content to the file
+                file = File(context.filesDir, fileName)
+                file.writeText(json)
 
-            println("File saved successfully: ${file.absolutePath}")
+                println("File saved successfully: ${file.absolutePath}")
+            } else {
+                file = File(context.filesDir, fileName)
+                file.writeText("")
+                println("File wiped successfully: ${file.absolutePath}")
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
