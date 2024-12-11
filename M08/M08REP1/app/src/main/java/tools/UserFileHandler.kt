@@ -18,7 +18,7 @@ class UserFileHandler(private val context: Context)  {
      * @param fileName The name of the JSON file.
      * @return A ProjectsWrapper object if successful, or null if an error occurs.
      */
-    fun readUsersFromFile(fileName: String, dataType: Array<User>): Array<User>? {
+    fun readUsersFromFile(fileName: String): Array<User>? {
         return try {
             // Get the file path
             val file = File(context.filesDir, fileName)
