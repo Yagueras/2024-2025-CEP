@@ -5,16 +5,10 @@
     android:layout_height="match_parent"
     android:id="@+id/project_list_container">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/project_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false">
-
         </androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
 </FrameLayout>
