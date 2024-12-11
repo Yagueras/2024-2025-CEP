@@ -3,7 +3,7 @@ package tools
 import dataClasses.User
 
 data class UsersWrapper(
-    val projects: Array<User>
+    val users: Array<User>
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11,10 +11,10 @@ data class UsersWrapper(
 
         other as UsersWrapper
 
-        return projects.contentEquals(other.projects)
+        return users.contentEquals(other.users)
     }
 
     override fun hashCode(): Int {
-        return projects.contentHashCode()
+        return users.contentHashCode()
     }
 }

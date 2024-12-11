@@ -10,11 +10,6 @@ import java.io.InputStreamReader
 class UserFileHandler(private val context: Context)  {
     private val gson = Gson()
 
-    /**
-     * Reads the JSON file from the app's files directory and deserializes it into a ProjectsWrapper object.
-     * @param fileName The name of the JSON file.
-     * @return A ProjectsWrapper object if successful, or null if an error occurs.
-     */
     fun readUsersFromFile(fileName: String): Array<User>? {
         return try {
             // Get the file path
@@ -37,15 +32,10 @@ class UserFileHandler(private val context: Context)  {
         }
     }
 
-    /**
-     * Writes a ProjectsWrapper object to a JSON file in the app's files directory.
-     * @param fileName The name of the JSON file.
-     * @param projectsWrapper The ProjectsWrapper object to save.
-     */
-    fun writeProjectsToFile(fileName: String, projectsWrapper: ProjectsWrapper) {
+    fun writeUserToFile(fileName: String, usersWrapper: UsersWrapper) {
         try {
             // Serialize the ProjectsWrapper object to JSON
-            val json = gson.toJson(projectsWrapper)
+            val json = gson.toJson(usersWrapper)
 
             // Write the JSON content to the file
             val file = File(context.filesDir, fileName)
