@@ -1,16 +1,16 @@
 [
   {
-    "Nombre": "Javier",
-    "Apellido1": "García",
-    "Apellido2": "Vera",
-    "Correo": "ejemplo@gmail.com",
-    "Contrasenya": "asdf"
+    "name": "Javier",
+    "surname1": "García",
+    "surname2": "Vera",
+    "email": "ejemplo@gmail.com",
+    "password": "asdf"
   },
   {
-    "Nombre": "Yago",
-    "Apellido1": "Jódar",
-    "Apellido2": "Segura",
-    "Correo": "yago.jsbs@gmail.com",
-    "Contrasenya": "12345aA"
+    "name": "Yago",
+    "surname1": "Jódar",
+    "surname2": "Segura",
+    "email": "yago.jsbs@gmail.com",
+    "password": "12345aA"
   }
 ]
