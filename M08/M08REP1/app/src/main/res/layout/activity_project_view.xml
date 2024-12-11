@@ -7,22 +7,48 @@
     android:background="@color/papaya"
     android:padding="25dp">
 
-    <TextView
-        android:id="@+id/projects_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corner_white"
-        android:gravity="center"
         android:paddingVertical="15dp"
-        android:text="Projects"
-        android:textColor="@color/papaya"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:background="@drawable/rounded_corner_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/projects_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Projects"
+            android:textColor="@color/papaya"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:tint="@color/papaya"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_logout_24"
+            android:rotation="180"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <fragment
         android:id="@+id/projects_fragment"
@@ -32,7 +58,7 @@
         android:layout_marginTop="25dp"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/projects_title"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
         tools:layout_editor_absoluteX="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
