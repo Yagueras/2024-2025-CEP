@@ -12,6 +12,7 @@ import dataClasses.Project
 import dataClasses.Status
 import dataClasses.SubTask
 import dataClasses.Task
+import dataClasses.User
 
 class ProjectViewerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,5 +20,7 @@ class ProjectViewerActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_project_view)
 
+        val user = intent.getSerializableExtra("loggedUser") as User
+        Toast.makeText(this, "Welcome back ${user.name}", Toast.LENGTH_SHORT).show()
     }
 }
