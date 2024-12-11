@@ -1,10 +1,7 @@
 package tools
 
 import android.content.Context
-import android.widget.Toast
 import com.google.gson.Gson
-import dataClasses.Project
-import dataClasses.ProjectsWrapper
 import dataClasses.User
 import java.io.BufferedReader
 import java.io.File
