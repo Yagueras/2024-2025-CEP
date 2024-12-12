@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.m08_rep1.R
 
 class ProjectDetailsFragment: Fragment() {
     override fun onCreateView(
@@ -12,6 +13,7 @@ class ProjectDetailsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val view = inflater.inflate(R.layout.fragment_project_details, container, false)
+        return view
     }
 }
