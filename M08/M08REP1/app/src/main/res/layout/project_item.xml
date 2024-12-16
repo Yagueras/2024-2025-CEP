@@ -72,7 +72,7 @@
     -->
 
     <TextView
-        android:id="@+id/task_progress"
+        android:id="@+id/project_progress"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:orientation="horizontal"
@@ -132,7 +132,7 @@
             -->
 
             <TextView
-                android:id="@+id/time_used"
+                android:id="@+id/project_time_used"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal"
