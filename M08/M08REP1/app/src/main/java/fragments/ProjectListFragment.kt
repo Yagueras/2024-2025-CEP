@@ -31,13 +31,11 @@ class ProjectListFragment : Fragment() {
 
         val projectList = view.findViewById<RecyclerView>(R.id.project_list)
         projectList.layoutManager = LinearLayoutManager(requireContext())
-        projectList.hasFixedSize()
         projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
             Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
+            //val projectDetails = childFragmentManager.findFragmentById(R.id.project_view_fragment) as? ProjectDetailsFragment
+            //val projectDetailsFragment = ProjectDetailsFragment
+            //parentFragmentManager.beginTransaction().replace(R.id.project_view_fragment, ProjectDetailsFragment).commit()
         }
-
-
-
-
     }
 }

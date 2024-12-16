@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
+import dataClasses.Project
 import dataClasses.Status
 import dataClasses.Task
 
 class TaskListAdapter(
     private val taskList: Array<Task>,
-    private val onItemClick: (Task) -> Unit, // Listener para clics
-    private val statusList: Array<Status>
+    private val statusList: Array<Status>,
+    private val onItemClick: (Task) -> Unit // Listener para clics
 ) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
