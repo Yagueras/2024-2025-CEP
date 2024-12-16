@@ -29,12 +29,12 @@ class ProjectListAdapter(
     inner class ProjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val projectName: TextView = itemView.findViewById(R.id.project_name)
         private val taskProgress: TextView = itemView.findViewById(R.id.project_progress)//LinearLayout
-        private val timeUsed: TextView = itemView.findViewById(R.id.project_time_used)//LinearLayout
+        private val projectTimeUsed: TextView = itemView.findViewById(R.id.project_time_used)//LinearLayout
 
         fun bind(project: Project) {
             projectName.text = project.name
             taskProgress.text = "TASK PROGRESS CHART(TO DO)"
-            timeUsed.text = "TIME USED CHART(TO DO)"
+            projectTimeUsed.text = "TIME USED CHART(TO DO)"
         }
     }
 }

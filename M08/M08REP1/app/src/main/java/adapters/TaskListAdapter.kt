@@ -31,14 +31,14 @@ class TaskListAdapter(
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val taskName: TextView = itemView.findViewById(R.id.task_name)
         private val taskStatus: TextView = itemView.findViewById(R.id.task_status)
-        private val taskProgress: TextView = itemView.findViewById(R.id.project_progress)//LinearLayout
-        private val timeUsed: TextView = itemView.findViewById(R.id.task_time_used)//LinearLayout
+        private val taskProgress: TextView = itemView.findViewById(R.id.task_progress)//LinearLayout
+        private val tasktimeUsed: TextView = itemView.findViewById(R.id.task_time_used)//LinearLayout
 
         fun bind(task: Task) {
             taskName.text = task.name
             taskStatus.text = statusList[task.status].statusName
             taskProgress.text = "TASK PROGRESS CHART(TO DO)"
-            timeUsed.text = "TIME USED CHART(TO DO)"
+            tasktimeUsed.text = "TIME USED CHART(TO DO)"
         }
     }
 }
