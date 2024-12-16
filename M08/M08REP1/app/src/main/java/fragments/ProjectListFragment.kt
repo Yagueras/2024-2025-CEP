@@ -1,7 +1,14 @@
 package fragments
 
 import adapters.ProjectListAdapter
+import android.R
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
+import android.transition.ArcMotion
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +16,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.m08_rep1.R
 import tools.ProjectFileHandler
+
 
 class ProjectListFragment : Fragment() {
     override fun onCreateView(
@@ -18,7 +25,7 @@ class ProjectListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_project_list, container, false)
+        val view = inflater.inflate(com.example.m08_rep1.R.layout.fragment_project_list, container, false)
         return view
     }
 
@@ -29,13 +36,22 @@ class ProjectListFragment : Fragment() {
 
         val listOfProjects = projectFileHandler.readProjectsFromFile("projects.json")
 
-        val projectList = view.findViewById<RecyclerView>(R.id.project_list)
+        val projectList = view.findViewById<RecyclerView>(com.example.m08_rep1.R.id.project_list)
         projectList.layoutManager = LinearLayoutManager(requireContext())
         projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
             Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
-            //val projectDetails = childFragmentManager.findFragmentById(R.id.project_view_fragment) as? ProjectDetailsFragment
-            //val projectDetailsFragment = ProjectDetailsFragment
-            //parentFragmentManager.beginTransaction().replace(R.id.project_view_fragment, ProjectDetailsFragment).commit()
+
+            val projectDetails = ProjectDetailsFragment(project)
+
+            projectDetails.enterTransition = Slide(Gravity.BOTTOM)
+            exitTransition = Fade()
+
+
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(com.example.m08_rep1.R.id.projects_fragment, projectDetails)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }

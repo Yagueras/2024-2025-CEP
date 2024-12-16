@@ -18,7 +18,7 @@ class ProjectViewerActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.project_view_fragment, ProjectListFragment())
+                .replace(R.id.projects_fragment, ProjectListFragment())
                 .commit()
         }
 
