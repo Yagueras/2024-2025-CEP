@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="@color/white"
+    android:backgroundTint="@color/papaya"
     android:layout_marginBottom="15dp"
     app:cardCornerRadius="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="10dp">
 
 
     <TextView
@@ -19,8 +20,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:text="Title"
-        android:textColor="@color/papaya"
-        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -35,8 +36,8 @@
             android:layout_weight="2"
             android:layout_marginEnd="25dp"
             android:layout_marginStart="15dp"
-            android:paddingVertical="10dp"
-            android:background="@drawable/rounded_corner_papaya">
+            android:paddingVertical="8dp"
+            android:background="@drawable/rounded_corner_white">
 
             <TextView
                 android:id="@+id/task_status"
@@ -44,10 +45,10 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:layout_marginHorizontal="20dp"
                 android:orientation="horizontal"
-                android:textColor="@color/white"/>
+                android:textColor="@color/papaya"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -55,9 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="170dp"
 
-        android:paddingBottom="25dp">
+        android:paddingBottom="20dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -71,8 +72,8 @@
                 android:maxLines="1"
                 android:gravity="center"
                 android:text="Time used"
-                android:textColor="@color/papaya"
-                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
         </LinearLayout>
@@ -87,9 +88,10 @@
                 android:id="@+id/task_time_used"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:textSize="10sp"
                 android:orientation="horizontal"
-                android:background="@color/papaya"
-                android:textColor="@color/white"/>
+                android:background="@color/white"
+                android:textColor="@color/papaya"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -97,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="135dp">
+        android:layout_marginTop="130dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -111,42 +113,27 @@
                 android:maxLines="1"
                 android:gravity="center"
                 android:text="Progress %"
-                android:textColor="@color/papaya"
-                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/task_progress"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:layout_marginEnd="25dp"
             android:layout_marginStart="15dp">
-            <!-- needs chart logic-->
-            <!--
-            <LinearLayout
-                android:id="@+id/time_used"
-                android:layout_width="240dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="105dp"
-                android:layout_marginStart="150dp"
-                android:orientation="horizontal"
-
-                android:background="@color/black">
-
-
-            </LinearLayout>
-
-            -->
-
             <TextView
+                android:id="@+id/task_progress"
+
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:textSize="10sp"
                 android:orientation="horizontal"
-                android:background="@color/papaya"
-                android:textColor="@color/white"/>
+                android:background="@color/white"
+                android:textColor="@color/papaya"/>
         </LinearLayout>
     </LinearLayout>
 
