@@ -11,7 +11,7 @@ import dataClasses.Task
 
 class TaskListAdapter(
     private val taskList: Array<Task>,
-    private val onItemClick: (Task) -> Unit // Listener para clics
+    private val onItemClick: (Task) -> Unit, // Listener para clics
     private val statusList: Array<Status>
 ) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 
