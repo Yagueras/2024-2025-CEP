@@ -43,11 +43,6 @@ class ProjectListFragment : Fragment() {
 
             val projectDetails = ProjectDetailsFragment(project)
 
-            projectDetails.enterTransition = Slide(Gravity.BOTTOM)
-            exitTransition = Fade()
-
-
-
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(com.example.m08_rep1.R.id.projects_fragment, projectDetails)
                 .addToBackStack(null)

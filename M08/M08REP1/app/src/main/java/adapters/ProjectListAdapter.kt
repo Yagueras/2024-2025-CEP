@@ -1,12 +1,16 @@
 package adapters
 
+import android.os.Bundle
+import android.provider.Settings.Global.putString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
 import dataClasses.Project
+import fragments.ProjectDetailsFragment
 
 class ProjectListAdapter(
     private val projectList: Array<Project>,
@@ -21,7 +25,26 @@ class ProjectListAdapter(
     override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
         val project = projectList[position]
         holder.bind(project)
-        holder.itemView.setOnClickListener { onItemClick(project) } // Asignar el clic
+
+        // Assign a unique transition name to the view you want to share
+        holder.itemView.transitionName = "project_transition_${project.projectID}"
+
+        // Pass the clicked view to the onItemClick function
+        holder.itemView.setOnClickListener {
+            onItemClick(project, holder.itemView)
+        }
+    }
+
+    fun onItemClick(project: Project, sharedView: View) {
+        val projectDetailsFragment = ProjectDetailsFragment(project)
+
+        // Start the transition
+        (sharedView.context as FragmentActivity).supportFragmentManager.beginTransaction()
+            .setReorderingAllowed(true)
+            .addSharedElement(sharedView, sharedView.transitionName) // Shared element
+            .replace(R.id.projects_fragment, projectDetailsFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun getItemCount(): Int = projectList.size

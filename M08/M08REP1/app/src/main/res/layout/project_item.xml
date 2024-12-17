@@ -7,7 +7,9 @@
     android:backgroundTint="@color/white"
     android:layout_marginBottom="15dp"
     app:cardCornerRadius="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/projectItemLayout"
+    android:transitionName="project_transition">
 
 
     <TextView

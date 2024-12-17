@@ -8,8 +8,9 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.m08_rep1.R
+import dataClasses.Project
 
-class ProjectMenuFragment : Fragment() {
+class ProjectMenuFragment(project: Project) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
