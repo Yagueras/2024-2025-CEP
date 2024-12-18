@@ -2,6 +2,9 @@ package fragments
 
 import adapters.TaskListAdapter
 import android.os.Bundle
+import android.transition.Fade
+import android.transition.Slide
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +27,11 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Configurar la transición de entrada y salida
+        enterTransition = Slide(Gravity.BOTTOM) // Transición al entrar
+        exitTransition = Slide(Gravity.BOTTOM)// Transición al salir
+
 
         // Load the menu fragment inside this fragment
         if (savedInstanceState == null) {

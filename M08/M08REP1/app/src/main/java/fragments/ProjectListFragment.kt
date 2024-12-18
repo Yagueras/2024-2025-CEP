@@ -2,6 +2,9 @@ package fragments
 
 import adapters.ProjectListAdapter
 import android.os.Bundle
+import android.transition.Fade
+import android.transition.Slide
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +38,10 @@ class ProjectListFragment : Fragment() {
             Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
 
             val projectDetails = ProjectDetailsFragment(project)
+
+            // Configurar la transición de entrada y salida
+            exitTransition = Fade()  // Transición al salir
+
 
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(com.example.m08_rep1.R.id.projects_fragment, projectDetails)
