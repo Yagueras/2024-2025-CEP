@@ -8,14 +8,20 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
 import dataClasses.Project
+import viewmodels.ProjectsViewModel
 
 class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() {
+
+    private val viewModel: ProjectsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +37,6 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
         // Configurar la transición de entrada y salida
         enterTransition = Slide(Gravity.BOTTOM) // Transición al entrar
         exitTransition = Slide(Gravity.BOTTOM)// Transición al salir
-
 
         // Load the menu fragment inside this fragment
         if (savedInstanceState == null) {
@@ -52,5 +57,12 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
                 Toast.makeText(context, "Clicked: ${task.name}", Toast.LENGTH_SHORT).show()
             }
         }
+
+        viewModel.selectedProjectName.value = this.selectedProject.name
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.selectedProjectName.value = "Projects"
     }
 }

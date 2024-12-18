@@ -4,14 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.m08_rep1.R
 import dataClasses.User
 import fragments.ProjectListFragment
 import tools.UserFileHandler
+import viewmodels.ProjectsViewModel
 
 class ProjectViewerActivity : AppCompatActivity() {
+    private val viewModel: ProjectsViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_project_view)
@@ -26,6 +31,11 @@ class ProjectViewerActivity : AppCompatActivity() {
         Toast.makeText(this, "Welcome back ${user.name}", Toast.LENGTH_SHORT).show()
 
         val logOutButton = findViewById<ImageButton>(R.id.button_logout)
+        val title = findViewById<TextView>(R.id.projects_title)
+
+        viewModel.selectedProjectName.observe(this) { projectName ->
+            title.text = projectName
+        }
 
         logOutButton.setOnLongClickListener() {
             wipeLastValidLogin(this)
