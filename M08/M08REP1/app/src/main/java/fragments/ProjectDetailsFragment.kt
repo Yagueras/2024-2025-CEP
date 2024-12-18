@@ -2,7 +2,6 @@ package fragments
 
 import adapters.TaskListAdapter
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +14,6 @@ import dataClasses.Project
 
 class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // Define the shared element enter transition
-        sharedElementEnterTransition = TransitionInflater.from(requireContext())
-            .inflateTransition(R.transition.project_transition)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +21,6 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
     ): View? {
         return inflater.inflate(R.layout.fragment_project_details, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,10 +31,6 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
                 .replace(R.id.details_menu_fragment, ProjectMenuFragment(selectedProject))
                 .commit()
         }
-
-        // Set the transition name dynamically for the shared element
-        val sharedView = view.findViewById<View>(R.id.project_details_fragment)
-        sharedView.transitionName = "project_transition_${selectedProject.projectID}"
 
         // Set up the RecyclerView for tasks
         if (selectedProject.tasks != null) {

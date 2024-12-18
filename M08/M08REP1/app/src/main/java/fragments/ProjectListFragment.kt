@@ -1,14 +1,7 @@
 package fragments
 
 import adapters.ProjectListAdapter
-import android.R
 import android.os.Bundle
-import android.transition.Explode
-import android.transition.Fade
-import android.transition.ArcMotion
-import android.transition.Slide
-import android.transition.TransitionManager
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -26,12 +26,8 @@ class ProjectListAdapter(
         val project = projectList[position]
         holder.bind(project)
 
-        // Assign a unique transition name to the view you want to share
-        holder.itemView.transitionName = "project_transition_${project.projectID}"
-
-        // Pass the clicked view to the onItemClick function
         holder.itemView.setOnClickListener {
-            onItemClick(project, holder.itemView)
+            onItemClick(project)
         }
     }
 
@@ -41,7 +37,6 @@ class ProjectListAdapter(
         // Start the transition
         (sharedView.context as FragmentActivity).supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
-            .addSharedElement(sharedView, sharedView.transitionName) // Shared element
             .replace(R.id.projects_fragment, projectDetailsFragment)
             .addToBackStack(null)
             .commit()
