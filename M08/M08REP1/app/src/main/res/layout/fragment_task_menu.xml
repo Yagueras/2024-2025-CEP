@@ -53,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button_project_overview"
+            android:id="@+id/project_status_picker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/papaya"
@@ -67,36 +67,69 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button_project_overview2"
+        <TextView
+            android:id="@+id/time_used_tag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/papaya"
+            android:background="@drawable/rounded_corner_papaya"
             android:paddingVertical="12dp"
-            android:text="Project Overview"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button_project_overview3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintBottom_toTopOf="@+id/time_required_tag"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_project_overview" />
+            app:layout_constraintEnd_toStartOf="@+id/time_used_view"
+            app:layout_constraintTop_toBottomOf="@+id/project_status_picker" />
 
-        <Button
-            android:id="@+id/button_project_overview3"
+        <TextView
+            android:id="@+id/time_required_tag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/papaya"
+            android:background="@drawable/rounded_corner_papaya"
             android:paddingVertical="12dp"
-            android:text="Project Overview"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintEnd_toStartOf="@+id/time_required_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/time_used_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_papaya"
+            android:paddingVertical="12dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintBottom_toTopOf="@+id/time_required_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/time_used_tag"
+            app:layout_constraintTop_toBottomOf="@+id/project_status_picker" />
+
+        <TextView
+            android:id="@+id/time_required_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_papaya"
+            android:paddingVertical="12dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/time_required_tag" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
