@@ -3,9 +3,21 @@
     "projectID": 1,
     "name": "Proyecto Alpha",
     "statusList": [
-      { "statusID": 1, "statusName": "To do" },
-      { "statusID": 2, "statusName": "In progress" },
-      { "statusID": 3, "statusName": "Completed" }
+      {
+        "statusID": 0,
+        "statusName": "To do",
+        "isCompleted": false
+      },
+      {
+        "statusID": 1,
+        "statusName": "In progress",
+        "isCompleted": false
+      },
+      {
+        "statusID": 2,
+        "statusName": "Completed",
+        "isCompleted": true
+      }
     ],
     "tasks": [
       {
@@ -13,7 +25,7 @@
         "name": "Diseño de interfaz",
         "requiredTime": 40,
         "timeUsed": 25,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -21,7 +33,7 @@
             "description": "Crear wireframes para la página principal",
             "requiredTime": 10,
             "timeUsed": 8,
-            "status": 3
+            "status": 2
           },
           {
             "subTaskID": 2,
@@ -29,7 +41,7 @@
             "description": "Diseñar un prototipo interactivo para pruebas",
             "requiredTime": 20,
             "timeUsed": 10,
-            "status": 2
+            "status": 1
           }
         ]
       },
@@ -38,7 +50,7 @@
         "name": "Desarrollo backend",
         "requiredTime": 60,
         "timeUsed": 15,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -46,7 +58,7 @@
             "description": "Definir el esquema de la base de datos",
             "requiredTime": 15,
             "timeUsed": 0,
-            "status": 2
+            "status": 1
           },
           {
             "subTaskID": 2,
@@ -54,7 +66,7 @@
             "description": "Desarrollar las rutas principales de la API",
             "requiredTime": 25,
             "timeUsed": 0,
-            "status": 2
+            "status": 1
           }
         ]
       }
@@ -64,10 +76,26 @@
     "projectID": 2,
     "name": "Proyecto Beta",
     "statusList": [
-      { "statusID": 1, "statusName": "To do" },
-      { "statusID": 2, "statusName": "In progress" },
-      { "statusID": 3, "statusName": "Completed" },
-      { "statusID": 4, "statusName": "Testing" }
+      {
+        "statusID": 0,
+        "statusName": "To do",
+        "isCompleted": false
+      },
+      {
+        "statusID": 1,
+        "statusName": "In progress",
+        "isCompleted": false
+      },
+      {
+        "statusID": 2,
+        "statusName": "Completed",
+        "isCompleted": true
+      },
+      {
+        "statusID": 3,
+        "statusName": "Testing",
+        "isCompleted": false
+      }
     ],
     "tasks": [
       {
@@ -75,7 +103,7 @@
         "name": "Investigación de mercado",
         "requiredTime": 20,
         "timeUsed": 5,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -83,7 +111,7 @@
             "description": "Revisar las estrategias de la competencia",
             "requiredTime": 10,
             "timeUsed": 7,
-            "status": 4
+            "status": 3
           },
           {
             "subTaskID": 2,
@@ -91,7 +119,7 @@
             "description": "Realizar encuestas para validar ideas",
             "requiredTime": 10,
             "timeUsed": 0,
-            "status": 1
+            "status": 0
           }
         ]
       }
@@ -101,9 +129,21 @@
     "projectID": 3,
     "name": "Proyecto Gamma",
     "statusList": [
-      { "statusID": 1, "statusName": "To do" },
-      { "statusID": 2, "statusName": "In progress" },
-      { "statusID": 3, "statusName": "Completed" }
+      {
+        "statusID": 0,
+        "statusName": "To do",
+        "isCompleted": false
+      },
+      {
+        "statusID": 1,
+        "statusName": "In progress",
+        "isCompleted": false
+      },
+      {
+        "statusID": 2,
+        "statusName": "Completed",
+        "isCompleted": true
+      }
     ],
     "tasks": [
       {
@@ -111,7 +151,7 @@
         "name": "Documentación inicial",
         "requiredTime": 15,
         "timeUsed": 5,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -119,7 +159,7 @@
             "description": "Crear la guía de usuario para el sistema",
             "requiredTime": 8,
             "timeUsed": 3,
-            "status": 2
+            "status": 1
           },
           {
             "subTaskID": 2,
@@ -127,7 +167,7 @@
             "description": "Elaborar un manual técnico para los desarrolladores",
             "requiredTime": 7,
             "timeUsed": 2,
-            "status": 2
+            "status": 1
           }
         ]
       }
@@ -137,10 +177,26 @@
     "projectID": 4,
     "name": "Proyecto Delta",
     "statusList": [
-      { "statusID": 1, "statusName": "To do" },
-      { "statusID": 2, "statusName": "In progress" },
-      { "statusID": 3, "statusName": "Completed" },
-      { "statusID": 4, "statusName": "Reviewed" }
+      {
+        "statusID": 0,
+        "statusName": "To do",
+        "isCompleted": false
+      },
+      {
+        "statusID": 1,
+        "statusName": "In progress",
+        "isCompleted": false
+      },
+      {
+        "statusID": 2,
+        "statusName": "Completed",
+        "isCompleted": true
+      },
+      {
+        "statusID": 3,
+        "statusName": "Reviewed",
+        "isCompleted": false
+      }
     ],
     "tasks": [
       {
@@ -148,7 +204,7 @@
         "name": "Pruebas funcionales",
         "requiredTime": 30,
         "timeUsed": 15,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -156,7 +212,7 @@
             "description": "Ejecutar pruebas de carga en el sistema",
             "requiredTime": 15,
             "timeUsed": 5,
-            "status": 2
+            "status": 1
           },
           {
             "subTaskID": 2,
@@ -164,7 +220,7 @@
             "description": "Realizar pruebas de penetración para identificar vulnerabilidades",
             "requiredTime": 15,
             "timeUsed": 10,
-            "status": 3
+            "status": 2
           }
         ]
       }
@@ -174,10 +230,26 @@
     "projectID": 5,
     "name": "Proyecto Épsilon",
     "statusList": [
-      { "statusID": 1, "statusName": "To do" },
-      { "statusID": 2, "statusName": "In progress" },
-      { "statusID": 3, "statusName": "Completed" },
-      { "statusID": 5, "statusName": "Cancelled" }
+      {
+        "statusID": 0,
+        "statusName": "To do",
+        "isCompleted": false
+      },
+      {
+        "statusID": 1,
+        "statusName": "In progress",
+        "isCompleted": false
+      },
+      {
+        "statusID": 2,
+        "statusName": "Completed",
+        "isCompleted": true
+      },
+      {
+        "statusID": 3,
+        "statusName": "Cancelled",
+        "isCompleted": false
+      }
     ],
     "tasks": [
       {
@@ -185,7 +257,7 @@
         "name": "Planeación del proyecto",
         "requiredTime": 12,
         "timeUsed": 4,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -193,7 +265,7 @@
             "description": "Definir metas específicas para el proyecto",
             "requiredTime": 4,
             "timeUsed": 2,
-            "status": 2
+            "status": 1
           },
           {
             "subTaskID": 2,
@@ -201,7 +273,7 @@
             "description": "Listar los recursos necesarios para completar el proyecto",
             "requiredTime": 8,
             "timeUsed": 2,
-            "status": 2
+            "status": 1
           }
         ]
       },
@@ -210,7 +282,7 @@
         "name": "Ejecución inicial",
         "requiredTime": 20,
         "timeUsed": 10,
-        "status": 2,
+        "status": 1,
         "subTasks": [
           {
             "subTaskID": 1,
@@ -218,7 +290,7 @@
             "description": "Completar tareas del primer sprint",
             "requiredTime": 10,
             "timeUsed": 5,
-            "status": 2
+            "status": 1
           },
           {
             "subTaskID": 2,
@@ -226,7 +298,7 @@
             "description": "Revisar los avances del primer sprint con los interesados",
             "requiredTime": 10,
             "timeUsed": 5,
-            "status": 3
+            "status": 2
           }
         ]
       }
