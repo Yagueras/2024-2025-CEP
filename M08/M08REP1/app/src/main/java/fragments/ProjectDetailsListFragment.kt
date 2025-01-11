@@ -2,18 +2,12 @@ package fragments
 
 import adapters.TaskListAdapter
 import android.os.Bundle
-import android.transition.Fade
-import android.transition.Slide
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
@@ -47,7 +41,9 @@ class ProjectDetailsListFragment(private val selectedProject: Project) : Fragmen
                 // Handle task item click
                 Toast.makeText(context, "Clicked: ${task.name}", Toast.LENGTH_SHORT).show()
                 requireActivity().supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
                     .replace(R.id.details_menu_fragment, TaskMenuFragment(task))
+                    .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
                     .replace(R.id.task_list, SubTaskListFragment(task, selectedProject.statusList))//esto ha de ser la lista de subtareas
                     .addToBackStack(null)
                     .commit()

@@ -2,26 +2,29 @@ package fragments
 
 import adapters.ProjectListAdapter
 import android.os.Bundle
-import android.transition.Fade
-import android.transition.Slide
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.m08_rep1.R
 import tools.ProjectFileHandler
+import viewmodels.ProjectsViewModel
 
 
 class ProjectListFragment : Fragment() {
+
+    private val viewModel: ProjectsViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(com.example.m08_rep1.R.layout.fragment_project_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_project_list, container, false)
         return view
     }
 
@@ -36,15 +39,13 @@ class ProjectListFragment : Fragment() {
         projectList.layoutManager = LinearLayoutManager(requireContext())
         projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
             Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
+            viewModel.selectedProjectName.value = project.name
 
             val projectDetails = ProjectDetailsFragment(project)
 
-            // Configurar la transición de entrada y salida
-            exitTransition = Fade()  // Transición al salir
-
-
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(com.example.m08_rep1.R.id.projects_fragment, projectDetails)
+                .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
+                .replace(R.id.projects_fragment, projectDetails)
                 .addToBackStack(null)
                 .commit()
         }

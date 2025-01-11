@@ -11,8 +11,8 @@ import dataClasses.SubTask
 
 class SubTaskListAdapter (
     private val subtaskList: Array<SubTask>,
-    private val onItemClick: (SubTask) -> Unit, // Listener para clics
-    private val statusList: Array<Status>
+    private val statusList: Array<Status>,
+    private val onItemClick: (SubTask) -> Unit // Listener para clics
 ) : RecyclerView.Adapter<SubTaskListAdapter.SubTaskViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubTaskViewHolder {
