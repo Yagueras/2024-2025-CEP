@@ -26,10 +26,10 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
         super.onViewCreated(view, savedInstanceState)
 
         // Load the menu fragment inside this fragment
-        if (savedInstanceState == null) {
+        if (viewModel.fragmentDepth.value!! < 1) {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.details_menu_fragment, ProjectMenuFragment(selectedProject))
-                .replace(R.id.task_list, ProjectDetailsListFragment(selectedProject))
+                .replace(R.id.task_list, ProjectDetailsTaskListFragment(selectedProject))
                 .commit()
         }
 
@@ -37,6 +37,7 @@ class ProjectDetailsFragment(private val selectedProject: Project) : Fragment() 
 
     override fun onStop() {
         super.onStop()
-        viewModel.selectedProjectName.value = "Projects"
+        viewModel.titleCardValue.value = "Projects"
+        viewModel.removeDepth()
     }
 }

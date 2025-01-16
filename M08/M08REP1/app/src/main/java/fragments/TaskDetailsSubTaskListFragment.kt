@@ -1,26 +1,24 @@
 package fragments
 
 import adapters.SubTaskListAdapter
-import adapters.TaskListAdapter
 import android.os.Bundle
-import android.transition.Fade
-import android.transition.Slide
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
-import dataClasses.Project
 import dataClasses.Status
 import dataClasses.Task
+import viewmodels.ProjectsViewModel
 
-class SubTaskListFragment(private val selectedTask: Task, private val statusList: Array<Status>) :
+class TaskDetailsSubTaskListFragment(private val selectedTask: Task, private val statusList: Array<Status>) :
     Fragment() {
 
+    private val viewModel: ProjectsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,10 +37,10 @@ class SubTaskListFragment(private val selectedTask: Task, private val statusList
             subTaskList.adapter = SubTaskListAdapter(
                 selectedTask.subTasks,
                 statusList
-            ) { task ->
+            ) { subTask ->
                 // Handle task item click
-                Toast.makeText(context, "Clicked: ${task.name}", Toast.LENGTH_SHORT).show()
-                //fragment swap logic
+                Toast.makeText(context, "Clicked: ${subTask.name}", Toast.LENGTH_SHORT).show()
+                viewModel.titleCardValue.value = subTask.name
             }
         }
     }

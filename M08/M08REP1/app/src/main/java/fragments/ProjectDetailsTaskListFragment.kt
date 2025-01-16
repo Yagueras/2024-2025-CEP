@@ -14,7 +14,7 @@ import com.example.m08_rep1.R
 import dataClasses.Project
 import viewmodels.ProjectsViewModel
 
-class ProjectDetailsListFragment(private val selectedProject: Project) : Fragment() {
+class ProjectDetailsTaskListFragment(private val selectedProject: Project) : Fragment() {
 
     private val viewModel: ProjectsViewModel by activityViewModels()
 
@@ -42,11 +42,12 @@ class ProjectDetailsListFragment(private val selectedProject: Project) : Fragmen
                 Toast.makeText(context, "Clicked: ${task.name}", Toast.LENGTH_SHORT).show()
                 requireActivity().supportFragmentManager.beginTransaction()
                     .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
-                    .replace(R.id.details_menu_fragment, TaskMenuFragment(task))
+                    .replace(R.id.details_menu_fragment, TaskMenuFragment(task, selectedProject.statusList))
                     .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
-                    .replace(R.id.task_list, SubTaskListFragment(task, selectedProject.statusList))//esto ha de ser la lista de subtareas
-                    .addToBackStack(null)
+                    .replace(R.id.task_list, TaskDetailsSubTaskListFragment(task, selectedProject.statusList))//esto ha de ser la lista de subtareas
+                    .addToBackStack("1")
                     .commit()
+                viewModel.titleCardValue.value = task.name
             }
         }
     }
