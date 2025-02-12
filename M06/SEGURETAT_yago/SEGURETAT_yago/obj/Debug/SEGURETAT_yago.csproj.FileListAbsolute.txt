@@ -1,0 +1,10 @@
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.Dashboard.resources
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.Properties.Resources.resources
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\bin\Debug\SEGURETAT_yago.exe.config
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\bin\Debug\SEGURETAT_yago.exe
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\bin\Debug\SEGURETAT_yago.pdb
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.exe
+C:\Users\User\Desktop\Politecnics\Projectes\M6\SEGURETAT_yago\SEGURETAT_yago\obj\Debug\SEGURETAT_yago.pdb
