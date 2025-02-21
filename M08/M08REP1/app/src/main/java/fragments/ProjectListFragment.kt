@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
@@ -31,26 +32,37 @@ class ProjectListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Revisamos la profundidad de la aplicación
+        var currentDepth = 0
+        viewModel.fragmentDepth.observe(viewLifecycleOwner) { liveDepth ->
+            currentDepth = liveDepth
+        }
+        /*Creamos un valor para guardar la profundidad en la que se encuentra la aplicación
+        al iniciarse. Lo usaremos para etiquetar el fragmento actual en el backstack, en vez
+        de currentDepth debido a su volatilidad como MutableLiveData*/
+        val activityDepth = currentDepth
+
+        //Lógica para cargar la lista de proyectos
         val projectFileHandler = ProjectFileHandler(requireContext())
-
         val listOfProjects = projectFileHandler.readProjectsFromFile("projects.json")
-
         val projectList = view.findViewById<RecyclerView>(R.id.project_list)
         projectList.layoutManager = LinearLayoutManager(requireContext())
+
         //onClick
         projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
-            Toast.makeText(context, "Clic en: ${project.name}", Toast.LENGTH_SHORT).show()
 
             //Actualizamos la profundidad del ViewModel
             viewModel.addDepth()
             viewModel.titleCardValue.value = project.name
 
-            val projectDetails = ProjectDetailsFragment(project)
+            val projectDetails = ProjectDetailsFragment(project, null)
+
+            Toast.makeText(requireActivity(), "CD${currentDepth}", Toast.LENGTH_SHORT).show()
 
             requireActivity().supportFragmentManager.beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
                 .replace(R.id.projects_fragment, projectDetails)
-                .addToBackStack("0")
+                .addToBackStack(activityDepth.toString()) //Usamos activityDepth
                 .commit()
         }
     }
