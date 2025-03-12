@@ -37,7 +37,7 @@ class ProjectViewerActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.checkIfNull()
         if (currentDepth == 0) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.projects_fragment, ProjectListFragment())
+                .replace(R.id.prj_view_host_fragment, ProjectListFragment())
                 .commit()
         }
 

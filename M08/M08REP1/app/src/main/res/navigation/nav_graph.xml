@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@layout/fragment_project_list">
+
+    <!-- Declaramos loss fragmentos que hay en nuestra aplicación -->
+    <fragment
+        android:id="@+id/home.1"
+        android:name="fragments.ProjectListFragment"
+        tools:layout="@layout/fragment_project_list">
+
+        <!-- We create the action of navigating
+        from one fragment to another -->
+        <action
+            android:id="@+id/nav_1.2"
+            app:destination="@id/pj_details.2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pj_details.2"
+        android:name="fragments.ProjectDetailsFragment"
+        tools:layout="@layout/fragment_project_details"
+        >
+
+    </fragment>
+
+
+</navigation>
+
+    <!-- -->

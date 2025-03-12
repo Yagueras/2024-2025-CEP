@@ -1,7 +1,5 @@
 package adapters
 
-import android.os.Bundle
-import android.provider.Settings.Global.putString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +35,7 @@ class ProjectListAdapter(
         // Start the transition
         (sharedView.context as FragmentActivity).supportFragmentManager.beginTransaction()
             .setReorderingAllowed(true)
-            .replace(R.id.projects_fragment, projectDetailsFragment)
+            .replace(R.id.prj_view_host_fragment, projectDetailsFragment)
             .addToBackStack(null)
             .commit()
     }
