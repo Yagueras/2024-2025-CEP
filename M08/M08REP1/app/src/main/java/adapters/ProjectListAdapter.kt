@@ -32,7 +32,7 @@ class ProjectListAdapter(
     }
 
     fun onItemClick(project: Project, sharedView: View) {
-        val projectDetailsFragment = ProjectDetailsFragment(project)
+        val projectDetailsFragment = ProjectDetailsFragment(project, null)
 
         // Start the transition
         (sharedView.context as FragmentActivity).supportFragmentManager.beginTransaction()

@@ -1,36 +1,43 @@
 package viewmodels
 
-import android.content.Context
-import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ProjectsViewModel : ViewModel() {
-    var titleCardValue = MutableLiveData<String>()
+    private val newTitleCardValue = MutableLiveData<String>()
+    val titleCardValue: LiveData<String> get() = newTitleCardValue
     private val projectDepth = arrayOf(0,1,2,3)
-    var fragmentDepth = MutableLiveData<Int>()
+    private val newFragmentDepth = MutableLiveData<Int>().apply { value = 0 }
+    val fragmentDepth: LiveData<Int> get() = newFragmentDepth
 
-    init {
-        fragmentDepth.value = 0
+    fun setTitleCardValue(newValue: String) {
+        newTitleCardValue.value = newValue
     }
 
-    fun addDepth(): Int{
-        fragmentDepth.value = fragmentDepth.value!! + 1
-        return fragmentDepth.value!!
+    fun addDepth(){
+        val current = newFragmentDepth.value ?: 0
+        newFragmentDepth.value = current + 1
     }
 
-    fun removeDepth(): Int{
-        fragmentDepth.value = fragmentDepth.value!! - 1
-        return fragmentDepth.value!!
+    fun removeDepth(){
+        val current = newFragmentDepth.value ?: 0
+        newFragmentDepth.value = (current - 1).coerceAtLeast(0)
     }
 
-    fun validDepth() {
+    fun checkIfNull(){
+        try {
+            fragmentDepth.value!! + 0
+        }catch (isNull: NullPointerException){
+            newFragmentDepth.value = 0
+        }
+    }
+
+    fun checkValidDepth() {
         try {
             projectDepth[fragmentDepth.value!!]
         }catch (invalidDepth: ArrayIndexOutOfBoundsException){
-            fragmentDepth.value = 0
+            newFragmentDepth.value = 0
         }
     }
 }
-
-

@@ -83,9 +83,22 @@ class ProjectViewerActivity : AppCompatActivity(), View.OnClickListener {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 viewModel.removeDepth()
-                supportFragmentManager.popBackStack(currentDepth.toString(), FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                popBackStack()
             }
         })
+    }
+
+    private fun popBackStack(){
+        //Para asegurarnos de que el valor de fragmentDepth está actualizado antes de usarlo para navegar, lo observamos, y usamos el valor más reciente.
+        viewModel.fragmentDepth.observe(this@ProjectViewerActivity) { updatedDepth ->
+            supportFragmentManager.popBackStack(
+                updatedDepth.toString(),
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
+            )
+            /*Puesto que cada vez que retrocedamos, observaremos el valor, para evitar
+            observaciones múltiples o fugas de memoria, debemos retirar los observadores creados*/
+            viewModel.fragmentDepth.removeObservers(this@ProjectViewerActivity)
+        }
     }
 
     private fun logOut() {

@@ -46,7 +46,6 @@ class TaskMenuFragment(val selectedTask: Task, val statusList: Array<Status>) : 
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                Toast.makeText(requireContext(), statusList[selectedTask.status].statusName, Toast.LENGTH_SHORT).show()
             }
         }
 

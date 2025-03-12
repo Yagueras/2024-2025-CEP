@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="papaya_text_hint">#A9FF841F</color>
     <color name="papaya">#FF841F</color>
+    <color name="blank">#00FFFFFF</color>
 </resources>

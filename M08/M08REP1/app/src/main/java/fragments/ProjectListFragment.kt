@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.m08_rep1.R
@@ -51,19 +50,21 @@ class ProjectListFragment : Fragment() {
         //onClick
         projectList.adapter = ProjectListAdapter(listOfProjects!!) { project ->
 
-            //Actualizamos la profundidad del ViewModel
             viewModel.addDepth()
-            viewModel.titleCardValue.value = project.name
 
             val projectDetails = ProjectDetailsFragment(project, null)
-
-            Toast.makeText(requireActivity(), "CD${currentDepth}", Toast.LENGTH_SHORT).show()
-
             requireActivity().supportFragmentManager.beginTransaction()
-                .setCustomAnimations(R.anim.enter_from_bottom, R.anim.fade_out, R.anim.fade_in, R.anim.exit_to_bottom)
+                .setCustomAnimations(
+                    R.anim.enter_from_bottom,
+                    R.anim.fade_out,
+                    R.anim.fade_in,
+                    R.anim.exit_to_bottom
+                )
                 .replace(R.id.projects_fragment, projectDetails)
-                .addToBackStack(activityDepth.toString()) //Usamos activityDepth
+                .addToBackStack(activityDepth.toString())
                 .commit()
+
+            viewModel.setTitleCardValue(project.name)
         }
     }
 }

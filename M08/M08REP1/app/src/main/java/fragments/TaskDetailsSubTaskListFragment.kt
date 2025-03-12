@@ -15,7 +15,10 @@ import dataClasses.Status
 import dataClasses.Task
 import viewmodels.ProjectsViewModel
 
-class TaskDetailsSubTaskListFragment(private val selectedTask: Task, private val statusList: Array<Status>) :
+class TaskDetailsSubTaskListFragment(
+    private val selectedTask: Task,
+    private val statusList: Array<Status>
+) :
     Fragment() {
 
     private val viewModel: ProjectsViewModel by activityViewModels()
@@ -38,9 +41,16 @@ class TaskDetailsSubTaskListFragment(private val selectedTask: Task, private val
                 selectedTask.subTasks,
                 statusList
             ) { subTask ->
-                // Handle task item click
+                // Handle subTask item click
+
+                var currentDepth = 0
+                viewModel.fragmentDepth.observe(viewLifecycleOwner) { liveDepth ->
+                    currentDepth = liveDepth
+                }
+                //Actualizamos la profundidad del ViewModel
+                viewModel.setTitleCardValue(subTask.name)
+
                 Toast.makeText(context, "Clicked: ${subTask.name}", Toast.LENGTH_SHORT).show()
-                viewModel.titleCardValue.value = subTask.name
             }
         }
     }
