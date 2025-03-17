@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="papaya_text_hint">#A9FF841F</color>
     <color name="papaya">#FF841F</color>
+    <color name="white_accent">#A9FFFFFF</color>
+    <color name="papaya_accent">#A9FF841F</color>
     <color name="blank">#00FFFFFF</color>
 </resources>
